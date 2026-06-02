@@ -2,8 +2,8 @@
 
 <H1 ALIGN=CENTER> Experiment-6: Implementation of Semantic Analysis </H1>
 
-### Name: 
-### Register Number:
+### Name: chowla chaithanya
+### Register Number: 2305002004
 
 ## Aim: 
 
@@ -28,38 +28,42 @@ To perform Parts of speech identification and Synonym using Natural Language Pro
 
 ## Program:
 
-```python
+```
 import nltk
-#import wordnet
-nltk.download( 'punkt' )
+
+nltk.download('punkt')
+nltk.download('punkt_tab')
 nltk.download('wordnet')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('averaged_perceptron_tagger_eng')
+
 from nltk.tokenize import word_tokenize
-nltk.download( 'averaged_perceptron_tagger' )
-sentence=input ()
-# Tokenize the sentence into words
-words = word_tokenize(sentence)
-# Identify the parts of speech for each word
-pos_tags= nltk.pos_tag(words)
 from nltk.corpus import wordnet
 
-# Identify synonyms and antonyms for each word
-synonyms =[]
-antonyms =[]
+sentence = input("Enter a sentence: ")
+
+words = word_tokenize(sentence)
+
+pos_tags = nltk.pos_tag(words)
+
+synonyms = []
+antonyms = []
+
 for word in words:
-	for syn in wordnet.synsets(word) :
-		for lemma in syn.lemmas():
-			synonyms . append (lemma . name( ) )
-			if lemma . antonyms():
-				antonyms . append ( lemma. antonyms ( ) [0] . name ( ) )
-# Print the synonyms and antonyms
-print ( "Synonyms : " ,set (synonyms) )
-print ( "Antonyms : " ,set(antonyms) )
+    for syn in wordnet.synsets(word):
+        for lemma in syn.lemmas():
+            synonyms.append(lemma.name())
+
+            if lemma.antonyms():
+                antonyms.append(lemma.antonyms()[0].name())
+
+print("POS Tags:", pos_tags)
+print("Synonyms:", set(synonyms))
+print("Antonyms:", set(antonyms))
 ```
----
 
 ## Output:
-
----
+<img width="1446" height="283" alt="image" src="https://github.com/user-attachments/assets/58e84d79-b7d9-40af-bc69-f0858a942ea6" />
 
 ## Result:
 Thus ,the program to perform the Parts of Speech identification and Synonymis executed sucessfully.
